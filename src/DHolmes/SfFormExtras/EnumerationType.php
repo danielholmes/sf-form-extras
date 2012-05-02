@@ -23,7 +23,7 @@ class EnumerationType extends AbstractType
         }
     }
 
-    public function getDefaultOptions(array $options)
+    public function getDefaultOptions()
     {        
         $defaultOptions = array(
             'class'    => null,
