@@ -1,0 +1,20 @@
+{
+    "name": "dholmes/sf-form-extras",
+    "type": "library",
+    "description": "Extra classes for Symfony Form component",
+    "keywords": ["php"],
+    "authors": [
+        {
+            "name": "Daniel Holmes",
+            "email": "daniel@creatio.com.au"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2"
+    },
+    "autoload": {
+        "psr-0": {
+            "DHolmes\\SfFormExtras": "src/"
+        }
+    }
+}
