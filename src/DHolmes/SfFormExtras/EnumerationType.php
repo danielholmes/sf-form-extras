@@ -4,7 +4,7 @@ namespace DHolmes\SfFormExtras;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilder;
-use Symfony\Component\Form\Options;
+use Symfony\Component\OptionsResolver\Options;
 
 class EnumerationType extends AbstractType
 {
@@ -12,7 +12,6 @@ class EnumerationType extends AbstractType
     { 
         if ($options['multiple'])
         {
-
             throw new \Exception('Not yet implemented');
             /*$builder
                 ->addEventSubscriber(new MergeCollectionListener())
