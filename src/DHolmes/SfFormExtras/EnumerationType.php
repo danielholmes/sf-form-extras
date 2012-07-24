@@ -4,7 +4,7 @@ namespace DHolmes\SfFormExtras;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\Options;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class EnumerationType extends AbstractType
 {
@@ -25,7 +25,7 @@ class EnumerationType extends AbstractType
         }
     }
 
-    public function getDefaultOptions()
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $choiceList = function (Options $options)
         {
@@ -33,11 +33,11 @@ class EnumerationType extends AbstractType
             return $class::getNamesByKey();
         };
         
-        return array(
+        $resolver->setDefaults(array(
             'class'    => null,
             'property' => null,
             'choices'  => $choiceList
-        );
+        ));
     }
 
     public function getParent()
