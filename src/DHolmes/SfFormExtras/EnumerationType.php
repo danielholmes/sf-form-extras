@@ -10,19 +10,14 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class EnumerationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
-    { 
+    {
         if ($options['multiple'])
         {
-            throw new \Exception('Not yet implemented');
-            /*$builder
-                ->addEventSubscriber(new MergeCollectionListener())
-                ->prependClientTransformer(new EntitiesToArrayTransformer($options['choice_list']))
-            ;*/
+            $builder->appendNormTransformer(new EnumerationArrayDataTransformer($options['class']));
         }
         else
         {
-            $transformer = new EnumerationDataTransformer($options['class']);
-            $builder->appendNormTransformer($transformer);
+            $builder->appendNormTransformer(new EnumerationDataTransformer($options['class']));
         }
     }
 
@@ -37,7 +32,8 @@ class EnumerationType extends AbstractType
         $resolver->setDefaults(array(
             'class'    => null,
             'property' => null,
-            'choices'  => $choiceList
+            'choices'  => $choiceList,
+            'label_property' => 'name'
         ));
     }
 

@@ -11,8 +11,8 @@ class EnumerationDataTransformer implements DataTransformerInterface
     private $enumerationClass;
     
     /**
-     *
-     * @param string $enumerationClass 
+     * @param string $enumerationClass
+     * @throws \InvalidArgumentException
      */
     public function __construct($enumerationClass)
     {
@@ -22,13 +22,12 @@ class EnumerationDataTransformer implements DataTransformerInterface
         }
         else
         {
-            throw new InvalidArgumentException(sprintf('class "%s" not a subclass of "%s"',
+            throw new \InvalidArgumentException(sprintf('class "%s" not a subclass of "%s"',
                 $enumerationClass, Enumeration::getClassName()));
         }
     }
     
     /**
-     *
      * @param mixed $value
      * @return string 
      */
@@ -44,7 +43,6 @@ class EnumerationDataTransformer implements DataTransformerInterface
     }
     
     /**
-     *
      * @param string $value
      * @return Enumeration
      */
