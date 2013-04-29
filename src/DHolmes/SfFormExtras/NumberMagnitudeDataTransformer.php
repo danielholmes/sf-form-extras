@@ -11,8 +11,7 @@ class NumberMagnitudeDataTransformer implements DataTransformerInterface
     private $magnitude;
     
     /**
-     *
-     * @param double $magnitude 
+     * @param float $magnitude
      */
     public function __construct($magnitude)
     {

@@ -13,11 +13,11 @@ class EnumerationType extends AbstractType
     {
         if ($options['multiple'])
         {
-            $builder->appendNormTransformer(new EnumerationArrayDataTransformer($options['class']));
+            $builder->addModelTransformer(new EnumerationArrayDataTransformer($options['class']), true);
         }
         else
         {
-            $builder->appendNormTransformer(new EnumerationDataTransformer($options['class']));
+            $builder->addModelTransformer(new EnumerationDataTransformer($options['class']), true);
         }
     }
 
